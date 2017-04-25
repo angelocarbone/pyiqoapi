@@ -1,10 +1,10 @@
 """Module for PyiqoAPI."""
 
-import json
-import threading
 import time
-
+import json
 import requests
+import threading
+
 # InsecureRequestWarning: Unverified HTTPS request is being made.
 # Adding certificate verification is strongly advised.
 # See: https://urllib3.readthedocs.org/en/latest/security.html
@@ -13,9 +13,9 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from pyiqoapi.websocketclient import WebsocketClient
 from pyiqoapi.objects.candles import Candles
 from .exceptions import LoginError
-from .ws.objects.profile import Profile
-from .ws.objects.result import Result
-from .ws.objects.timesync import TimeSync
+from .objects.profile import Profile
+from .objects.result import Result
+from .objects.timesync import TimeSync
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
