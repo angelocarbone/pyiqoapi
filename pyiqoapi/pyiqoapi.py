@@ -1,4 +1,4 @@
-"""Module for PyiqoAPI."""
+"""Module for IQ Option API."""
 
 import time
 import json
