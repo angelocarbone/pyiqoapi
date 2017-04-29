@@ -23,19 +23,19 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 class PyiqoAPI(object):
     """Class for communication with IQ Option API."""
 
+    _hostname = 'iqoption.com'
     _timesync = TimeSync()
     _profile = Profile()
     _candles = Candles()
 
-    def __init__(self, hostname, username, password, proxies=None):
-        """
-        :param str hostname: The hostname or ip address of a IQ Option server.
+    def __init__(self, username, password, proxies=None):
+        """        
         :param str username: The username of a IQ Option server.
         :param str password: The password of a IQ Option server.
         :param dict proxies: (optional) The http request proxies.
         """
-        self.https_url = "https://{host}/api".format(host=hostname)
-        self.wss_url = "wss://{host}/echo/websocket".format(host=hostname)
+        self.https_url = "https://{host}/api".format(host=self._hostname)
+        self.wss_url = "wss://{host}/echo/websocket".format(host=self._hostname)
         self._websocket_client = None
         self._session = requests.Session()
         self._session.verify = True
