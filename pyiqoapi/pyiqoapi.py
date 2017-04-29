@@ -112,11 +112,11 @@ class PyiqoAPI(object):
     #   WEBSOCKET CHANEL METHODS
     # *******************************
 
-    def buy(self, price, active, option, direction, exp_timeout=60):
+    def buy(self, price, active, option, direction, expiry=60):
         """Method to send message to buy option using websocket chanel."""
         name = 'buyV2'
         server_timestamp = self._timesync.server_timestamp
-        expiration_timestamp = self._timesync.expiration_timestamp + exp_timeout
+        expiration_timestamp = self._timesync.expiration_timestamp + expiry
         data = {'price': price,
                 'act': active,
                 'type': option,
@@ -171,10 +171,10 @@ class PyiqoAPI(object):
     def disconnect(self):
         self._websocket_client.close()
 
-    def open_position(self, active_id, price, option, direction, exp_timeout=60):
+    def open_position(self, active_id, price, option, direction, expiry=60):
         ticket_num = self._append_to_request_in_pending()
 
-        self.buy(price, active_id, option, direction, exp_timeout)
+        self.buy(price, active_id, option, direction, expiry)
 
         return ticket_num
 
