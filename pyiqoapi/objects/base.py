@@ -9,8 +9,5 @@ class Base(object):
 
     @property
     def name(self):
-        """Property to get websocket object name.
-
-        :returns: The name of websocket object.
-        """
+        """Property to get websocket object name."""
         return self.__name

@@ -7,57 +7,36 @@ class Candle(object):
     """Class for IQ Option candle."""
 
     def __init__(self, candle_data):
-        """
-        :param candle_data: The list of candles data.
-        """
         self.__candle_data = candle_data
 
     @property
     def candle_time(self):
-        """Property to get candle time.
-
-        :returns: The candle time.
-        """
+        """Property to get candle time."""
         return self.__candle_data[0]
 
     @property
     def candle_open(self):
-        """Property to get candle open value.
-
-        :returns: The candle open value.
-        """
+        """Property to get candle open value."""
         return self.__candle_data[1]
 
     @property
     def candle_close(self):
-        """Property to get candle close value.
-
-        :returns: The candle close value.
-        """
+        """Property to get candle close value."""
         return self.__candle_data[2]
 
     @property
     def candle_high(self):
-        """Property to get candle high value.
-
-        :returns: The candle high value.
-        """
+        """Property to get candle high value."""
         return self.__candle_data[3]
 
     @property
     def candle_low(self):
-        """Property to get candle low value.
-
-        :returns: The candle low value.
-        """
+        """Property to get candle low value."""
         return self.__candle_data[4]
 
     @property
     def candle_type(self):
-        """Property to get candle type value.
-
-        :returns: The candle type value.
-        """
+        """Property to get candle type value."""
         if self.candle_open < self.candle_close:
             return "green"
         elif self.candle_open > self.candle_close:
@@ -74,10 +53,7 @@ class Candles(Base):
 
     @property
     def candles_data(self):
-        """Property to get candles data.
-
-        :returns: The list of candles data.
-        """
+        """Property to get candles data."""
         return self.__candles_data
 
     @candles_data.setter
@@ -87,27 +63,15 @@ class Candles(Base):
 
     @property
     def first_candle(self):
-        """Method to get first candle.
-
-        :returns: The instance of :class:`Candle
-            <iqoptionapi.ws.objects.candles.Candle>`.
-        """
+        """Method to get first candle."""
         return Candle(self.candles_data[0])
 
     @property
     def second_candle(self):
-        """Method to get second candle.
-
-        :returns: The instance of :class:`Candle
-            <iqoptionapi.ws.objects.candles.Candle>`.
-        """
+        """Method to get second candle."""
         return Candle(self.candles_data[1])
 
     @property
     def current_candle(self):
-        """Method to get current candle.
-
-        :returns: The instance of :class:`Candle
-            <iqoptionapi.ws.objects.candles.Candle>`.
-        """
+        """Method to get current candle."""
         return Candle(self.candles_data[-1])

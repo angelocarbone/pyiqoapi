@@ -17,10 +17,7 @@ class TimeSync(Base):
 
     @property
     def server_timestamp(self):
-        """Property to get server timestamp.
-
-        :returns: The server timestamp.
-        """
+        """Property to get server timestamp."""
         return self.__server_timestamp / 1000
 
     @server_timestamp.setter
@@ -30,40 +27,25 @@ class TimeSync(Base):
 
     @property
     def server_datetime(self):
-        """Property to get server datetime.
-
-        :returns: The server datetime.
-        """
+        """Property to get server datetime."""
         return datetime.datetime.fromtimestamp(self.server_timestamp)
 
     @property
     def expiration_time(self):
-        """Property to get expiration time.
-
-        :returns: The expiration time.
-        """
+        """Property to get expiration time."""
         return self.__expiration_time
 
     @expiration_time.setter
     def expiration_time(self, minutes):
-        """Method to set expiration time
-
-        :param int minutes: The expiration time in minutes.
-        """
+        """Method to set expiration time"""
         self.__expiration_time = minutes
 
     @property
     def expiration_datetime(self):
-        """Property to get expiration datetime.
-
-        :returns: The expiration datetime.
-        """
+        """Property to get expiration datetime."""
         return self.server_datetime + datetime.timedelta(minutes=self.expiration_time)
 
     @property
     def expiration_timestamp(self):
-        """Property to get expiration timestamp.
-
-        :returns: The expiration timestamp.
-        """
+        """Property to get expiration timestamp."""
         return time.mktime(self.expiration_datetime.replace(second=0, microsecond=0).timetuple())

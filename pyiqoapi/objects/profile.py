@@ -14,10 +14,7 @@ class Profile(Base):
 
     @property
     def skey(self):
-        """Property to get skey value.
-
-        :returns: The skey value.
-        """
+        """Property to get skey value."""
         return self.__skey
 
     @skey.setter
@@ -27,10 +24,7 @@ class Profile(Base):
 
     @property
     def balance(self):
-        """Property to get balance value.
-
-        :returns: The balance value.
-        """
+        """Property to get balance value."""
         return self.__balance
 
     @balance.setter
