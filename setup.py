@@ -9,6 +9,7 @@ setup(name='pyiqoapi',
       long_description="""\
 """,
       classifiers=[
+          # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
           'Programming Language :: Python',
           'License :: OSI Approved :: MIT License',
           'Intended Audience :: Developers',
@@ -16,14 +17,14 @@ setup(name='pyiqoapi',
           'Operating System :: OS Independent',
           'Development Status :: 4 - Beta',
           'Topic :: Software Development :: Libraries :: Python Modules'
-      ],  # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+      ],
       keywords='IQOption binary option wrapper REST API',
       author='angelocarbone',
       author_email='api@magmati.co',
-      url='http://pyiqo.magmati.co/',
+      url='http://pyiqoapi.magmati.co/',
       license='MIT',
-      packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-      # test_suite="tests",
+      packages=find_packages(exclude=['examples', 'tests']),
+      test_suite="tests",
       include_package_data=True,
       zip_safe=False,
       install_requires=[
